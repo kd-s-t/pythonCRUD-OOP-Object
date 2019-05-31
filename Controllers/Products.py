@@ -12,7 +12,7 @@ class Products:
 		print('\033c')
 
 	def init(self):
-		print('What do you wanna do? 1. Add or 2. Update 3. Exit')
+		print('\033[1;33;40mWhat do you wanna do?\033[0m \033[1;32;40m 1. Add \033[0m or \033[1;32;40m2. Update \033[0m \033[1;31;40m3. Exit \033[0m')
 		choice = int(input())
 
 		if choice is 1:
@@ -21,11 +21,8 @@ class Products:
 			self.update()
 		if choice is 3:
 			self.clearScreen()
-			print("Thank you!")
-			return False
+			print("\033[1;32;40mThank you! \033[0m")
 			
-		self.clearScreen()
-		self.init()
 
 	def add(self):
 		count = 1
@@ -42,7 +39,7 @@ class Products:
 
 		self.products.add_row([self.id, self.name, self.type])
 		self.clearScreen()
-		print("New Product has been added!")
+		print("\033[1;32;40mNew Product has been added! \033[0m")
 		self.products.sortby = "ID"
 		print(self.products)
 
@@ -71,7 +68,7 @@ class Products:
 
 		if(found == 'no'):
 			self.clearScreen()
-			print("Sorry we couldn't find what your looking for.")
+			print("\033[0;37;41mSorry we couldn't find what your looking for. \033[0m")
 			self.products.sortby = "ID"
 			print(self.products)
 			self.init()
@@ -87,7 +84,7 @@ class Products:
 		self.products.add_row([self.id, self.name, self.type])
 		
 		self.clearScreen()
-		print("Product updated!")
+		print("\033[1;32;40mProduct updated! \033[0m")
 		self.products.sortby = "ID"
 		print(self.products)
 
